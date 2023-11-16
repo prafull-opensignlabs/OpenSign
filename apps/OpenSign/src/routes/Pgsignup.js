@@ -407,7 +407,7 @@ const PgSignUp = (props) => {
               }
             })
             .catch((err) => {
-              console.log('err', err)
+              console.log("err", err);
               setIsLoader(false);
             });
         }
@@ -440,10 +440,10 @@ const PgSignUp = (props) => {
       ) : (
         <form id="signup" className="pgsignup-content" onSubmit={handleSubmit}>
           <div className="pgsignup-container">
-            <h1 className="text-4xl font-bold">Choose Password</h1>
+            <h1 className="text-2xl md:text-3xl font-bold">Choose Password</h1>
             <hr className="hrt" />
             <label htmlFor="password">
-              <b>Password</b>
+              <b className="text-[13px]">Password</b>
             </label>
             <input
               type="password"
@@ -456,7 +456,7 @@ const PgSignUp = (props) => {
             />
 
             <label htmlFor="confirmPassword">
-              <b>Confirm Password</b>
+              <b className="text-[13px]">Confirm Password</b>
             </label>
             <input
               type="password"
