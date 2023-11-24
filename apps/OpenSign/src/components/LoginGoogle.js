@@ -42,7 +42,42 @@ const GoogleSignInBtn = ({
       width: "187px"
     });
   });
+  const clearStorage = async () => {
+    await Parse.User.logOut();
+
+    let baseUrl = localStorage.getItem("BaseUrl12");
+    let appid = localStorage.getItem("AppID12");
+    let applogo = localStorage.getItem("appLogo");
+    let domain = localStorage.getItem("domain");
+    let appversion = localStorage.getItem("appVersion");
+    let appTitle = localStorage.getItem("appTitle");
+    let defaultmenuid = localStorage.getItem("defaultmenuid");
+    let PageLanding = localStorage.getItem("PageLanding");
+    let _appName = localStorage.getItem("_appName");
+    let _app_objectId = localStorage.getItem("_app_objectId");
+    let appName = localStorage.getItem("appName");
+    let userSettings = localStorage.getItem("userSettings");
+
+    localStorage.clear();
+
+    localStorage.setItem("BaseUrl12", baseUrl);
+    localStorage.setItem("AppID12", appid);
+    localStorage.setItem("appLogo", applogo);
+    localStorage.setItem("domain", domain);
+    localStorage.setItem("appversion", appversion);
+    localStorage.setItem("appTitle", appTitle);
+    localStorage.setItem("defaultmenuid", defaultmenuid);
+    localStorage.setItem("PageLanding", PageLanding);
+    localStorage.setItem("_appName", _appName);
+    localStorage.setItem("_app_objectId", _app_objectId);
+    localStorage.setItem("appName", appName);
+    localStorage.setItem("userSettings", userSettings);
+    localStorage.setItem("baseUrl", baseUrl);
+    localStorage.setItem("parseAppId", appid);
+
+  };
   const responseGoogle = async (response) => {
+    clearStorage();
     setThirdpartyLoader(true);
     // console.log("response ", response);
     if (response.credential) {
@@ -289,6 +324,7 @@ const GoogleSignInBtn = ({
                       type="button"
                       className="bg-[#17a2b8] p-2 text-white rounded"
                       onClick={() => handleSubmitbtn()}
+                      style={{ marginRight: 10 }}
                     >
                       Sign up
                     </button>
@@ -296,7 +332,7 @@ const GoogleSignInBtn = ({
                       type="button"
                       className="bg-[#6c757d] p-2 text-white rounded"
                       onClick={handleCloseModal}
-                      style={{ marginRight: 10, width: 90 }}
+                      style={{ width: 90 }}
                     >
                       Cancel
                     </button>
