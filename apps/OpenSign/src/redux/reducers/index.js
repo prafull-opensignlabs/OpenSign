@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import infoReducer from "./infoReducer";
-import loginReducer from "./loginReducer";
 import ShowTenant from "./ShowTenant";
 import TourStepsReducer from "./TourStepsReducer";
+import showHeader from "./showHeader";
 
 export default combineReducers({
   appInfo: infoReducer,
-  login: loginReducer,
+  TourSteps: TourStepsReducer,
   ShowTenant,
-  TourSteps: TourStepsReducer
+  showHeader
 });
